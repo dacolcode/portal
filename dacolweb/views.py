@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 
-
 #DACol
 import requests
 import pandas as pd
@@ -27,3 +26,11 @@ def dataset_general(request):
     }
 
     return render(request, 'portal/dataset_general.html', context)
+
+def home(request):
+
+    context = {
+        'otro': "Hola mundo",
+    }
+
+    return render(request, 'portal/dataset_intro.html', context)
