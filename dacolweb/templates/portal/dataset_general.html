@@ -1,0 +1,36 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<div class="post">
+<h2>
+  Información General Portal Datos de Colombia
+</h2>
+
+</div>
+<pre>
+  {{ otro.results }}
+</pre>
+<pre>
+  {{ otro.resultSetSize }}
+</pre>
+<pre>
+  {{ otro.timings}}
+</pre>
+
+<table class="table">
+{% for key in otro.results %}
+  <tr>
+    <td>
+    <span style="font-weight:bold">{{ key.resource.name |upper }}</span>
+    </td>
+    <td>
+    <span style="font-weight:bold">{{ key.resource.type }}</span>
+    </td>
+    <td>
+      <a href="{% url 'dataset_detail' uuid=key.resource.id %}">Ver</a>
+    </td>
+  </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

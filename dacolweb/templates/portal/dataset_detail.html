@@ -1,0 +1,30 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<div class="post">
+  <a href="{% url 'dataset_general'%}">Volver al Inicio</a>
+<h2>
+  {{ metadata.name }}
+</h2>
+  <p>{{ metadata.attribution }}</p>
+  <a href="{{ metadata.webUri }}" target="_blank">Ver en Portal de Datos De Colombia</a>
+  <br/>
+  <a href="https://www.datos.gov.co/d/{{ metadata.id }}/visualization" target="_blank">Generar visualizaciones en el Portal de Datos de Colombia</a>
+  <br/>
+  <a href="https://plot.ly/external/?url=https://www.datos.gov.co/api/views/{{ metadata.id }}/rows.csv?accessType=DOWNLOAD" target="_blank">Generar visualizaciones en Ploty</a>
+
+<!--
+        <div>
+          <iframe width="500px" title="violencia contra la mujer" height="425px" src="https://www.datos.gov.co/w/cb2p-ftwp/dneh-mcp2?cur=hgS9eVy2eo9&from=root" frameborder="0"scrolling="no">
+            <a href="https://www.datos.gov.co/Estad-sticas-Nacionales/violencia-contra-la-mujer/cb2p-ftwp" title="violencia contra la mujer" target="_blank">violencia contra la mujer</a>
+          </iframe>
+        </div>
+-->
+
+
+
+</div>
+<pre>
+  {{ data }}
+</pre>
+{% endblock %}
