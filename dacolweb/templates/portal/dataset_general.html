@@ -8,30 +8,61 @@
 
 </div>
 <pre>
-  {{ otro.results }}
+  {{ mostrar.results }}
 </pre>
 <pre>
-  {{ otro.resultSetSize }}
+  {{ mostrar.resultSetSize }}
 </pre>
 <pre>
-  {{ otro.timings}}
+  {{ mostrar.timings}}
 </pre>
 
 
-<table class="table">
-{% for key in otro.results %}
+<table id="tbDatasetGeneral" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+   <thead>
+    <tr>
+      <th class="th-sm">Nombre
+
+      </th>
+      <th class="th-sm">Autor
+
+      </th>
+      <th class="th-sm">Tipo
+
+      </th>
+      <th class="th-sm">Ver
+
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for key in mostrar.results %}
   <tr>
     <td>
-    <span style="font-weight:bold">{{ key.resource.name |upper }}</span>
+    {{ key.resource.name |upper }}
     </td>
     <td>
-    <span style="font-weight:bold">{{ key.resource.type }}</span>
+    {{ key.resource.attribution }}
     </td>
     <td>
-      <a href="{% url 'dataset_detail' uuid=key.resource.id %}">Ver</a>
+    {{ key.resource.type }}
+    </td>
+    <td>
+      <a href="{% url 'dataset_detail' uuid=key.resource.id %}">Ver Detalle</a>
     </td>
   </tr>
 {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Nombre
+      </th>
+      <th>Autor
+      </th>
+      <th>Ver
+      </th>
+    </tr>
+  </tfoot>
 </table>
 
 
