@@ -1,6 +1,13 @@
 (function($) {
   "use strict"; // Start of use strict
 
+  //ajuste para móviles
+  $(document).ready(function () {
+      if ($(window).width() < 768) {
+        $(".sidebar").toggleClass("toggled");
+      };
+  });
+
   // Toggle the side navigation
   $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
     $("body").toggleClass("sidebar-toggled");

@@ -7,4 +7,7 @@ urlpatterns = [
     path('graficas', views.graficas, name='graficas'),
     path('dataset', views.dataset_general, name='dataset_general'),
 	path('dataset/<str:uuid>/', views.dataset_detail, name='dataset_detail'),
+
+    path('consultar_categorias', views.consultar_categorias, name='consultar_categorias'),
+
 ]

@@ -21,7 +21,21 @@ def tablas(request):
     return render(request, 'portal/tables.html')
 
 def graficas(request):
-    return render(request, 'portal/charts.html')
+
+    ## por categorias
+    facets = requests.get('http://api.us.socrata.com/api/catalog/v1/domains/www.datos.gov.co/facets').json()
+    respuesta = facets[0]['values']
+
+    categorias = []
+    valores = []
+    for categoria in respuesta:
+        categorias.append(categoria['value'])
+        valores.append(categoria['count'])
+
+    data = {
+        'categorias': respuesta,
+    }
+    return render(request, 'portal/charts.html',data)
 
 def dataset_detail(request, uuid):
     ## dataset
@@ -71,3 +85,22 @@ def dataset_general(request):
 
     return render(request, 'portal/dataset_general.html', context)
 
+from django.http import JsonResponse
+def consultar_categorias(request):
+
+    ## por categorias
+    facets = requests.get('http://api.us.socrata.com/api/catalog/v1/domains/www.datos.gov.co/facets').json()
+    respuesta = facets[0]['values']
+
+    categorias = []
+    valores = []
+    for categoria in respuesta:
+        categorias.append(categoria['value'])
+        valores.append(categoria['count'])
+
+    data = {
+        'categorias': categorias,
+        'valores': valores,
+    }
+
+    return JsonResponse(data)

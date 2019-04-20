@@ -148,7 +148,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-white mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -326,7 +326,7 @@
             </li-->
 
             <a href="/">
-                <img src="{% static "image/DACol.png" %}" alt="DACol">
+                <img src="{% static "image/DACol.png" %}" alt="DACol" {% if request.get_full_path != "/" %}style="width: 50%;"{% endif %}>
             </a>
           </ul>
 
