@@ -20,6 +20,9 @@ def home(request):
 def tablas(request):
     return render(request, 'portal/tables.html')
 
+def graficas(request):
+    return render(request, 'portal/charts.html')
+
 def dataset_detail(request, uuid):
     ## dataset
     data = pd.read_json('https://www.datos.gov.co/resource/'+uuid+'.json')

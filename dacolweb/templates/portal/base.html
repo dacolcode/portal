@@ -118,16 +118,16 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{% url 'graficas'%}">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Gráficas</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{% url 'tablas'%}">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Tablas</span></a>
       </li>
 
       <!-- Divider -->
@@ -398,6 +398,7 @@
   <!-- Page level custom scripts -->
 <script type="text/javascript" src="{% static "js/demo/chart-area-demo.js" %}"></script>
 <script type="text/javascript" src="{% static "js/demo/chart-pie-demo.js" %}"></script>
+<script type="text/javascript" src="{% static "js/demo/chart-bar-demo.js" %}"></script>
 <script type="text/javascript" src="{% static "js/demo/datatables-demo.js" %}"></script>
 
 </body>
