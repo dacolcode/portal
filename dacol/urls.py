@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404, handler500
+from dacolweb import views as dacolweb_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dacolweb.urls')),
 ]
+
+handler404 = dacolweb_views.error_404
+handler500 = dacolweb_views.error_500

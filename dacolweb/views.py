@@ -104,3 +104,12 @@ def consultar_categorias(request):
     }
 
     return JsonResponse(data)
+
+def error_404(request, exception):
+        data = {}
+        return render(request, 'portal/404.html', data)
+
+
+def error_500(request):
+    data = {}
+    return render(request, 'portal/404.html', data)
